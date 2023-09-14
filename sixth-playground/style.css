@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#container {
+    height: 650px;
+    width: 100%;
+    background-color: #000;
+    position: relative;
+    overflow: hidden; /* Ensure the slider content doesn't overflow */
+}
+.slider {
+    height: 100%;
+    white-space: nowrap; /* Prevent line break between images */
+}
+
+.slider img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.5s ease-in-out; /* Transition transform property */
+    transform: translateX(0); /* Start with no translation (initial position) */
+    display: inline-block; /* Display images inline */
+}
+
