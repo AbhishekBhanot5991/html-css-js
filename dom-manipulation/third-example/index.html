@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>different approach</title>
+</head>
+<body>
+    seperate the javascript using script tag or you can use external file as well
+</body>
+<script>
+    window.onload = () =>{
+        
+        // This is how you create a html tag
+        const heading = document.createElement('h1'); 
+
+        // this is how you can create a text that you want to add in a tag that you just created 
+        // but always keep in mind you haven't added it in your tag you just created a text
+        const headingText = document.createTextNode("Big Heading!!!") 
+        
+        // now we will add headingText in heading variable using appenChild method
+        heading.appendChild(headingText);
+        console.log("Check you console and see text is now added in h1 tag",heading)
+        
+        //now we are displaying it in our html page check your browser
+        document.body.appendChild(heading);
+
+    }
+</script>
+</html>
