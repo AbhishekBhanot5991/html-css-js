@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find user Operating System</title>
+</head>
+<body>
+    
+    <h1>Now in this we will use the switch statement to find os of a client</h1>
+
+
+    <script>
+        const userAgent = window.navigator.userAgent;
+        let osName;
+
+        switch (true) {
+            case /Windows/i.test(userAgent):
+                document.write("Windows OS")
+                break;
+            case /Mac/i.test(userAgent):
+                document.write("Mac OS")
+                break;
+            case /Linux/i.test(userAgent):
+                document.write("Linux OS")
+                break;
+            case /ios|iphone|ipad/i.test(userAgent):
+                document.write("ios|iphone|ipad OS")
+                break;
+            case /Android/i.test(userAgent):
+                document.write("Android")
+                break;
+        
+            default:
+                document.write("Unknown OS")
+                break;
+        }
+    </script>
+</body>
+</html>

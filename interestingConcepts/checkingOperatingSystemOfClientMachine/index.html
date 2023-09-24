@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Client Machine OS</title>
+</head>
+<body>
+    <h1>Now below this text we will find the operating system of  client Machine</h1>
+    <h2>Using if, else if and else statement </h2>
+    <script>
+        const userAgent = window.navigator.userAgent;
+        console.log(userAgent)
+
+        if(userAgent.match(/Windows/i)){
+            console.log("Windows OS")
+            document.write("Windows OS")
+            
+        }
+        else if(userAgent.match(/Mac/i)){
+            console.log('Mac OS')
+            document.write("Mac OS")
+        }
+        else if(userAgent.match(/Linux/i)){
+            console.log('Linux OS')
+            document.write("Linux OS")
+        }
+        else if(userAgent.match(/Android/i)){
+            console.log('Android OS')
+            document.write("Android OS")
+        }
+        else if(userAgent.match(/ios/i)){
+            console.log('ios OS')
+            document.write("ios OS")
+        }
+        else{
+            console.log('Unknown OS')
+            document.write("Unknown OS") 
+        }
+
+
+    </script>
+</body>
+</html>
