@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World at Random Locations</title>
+</head>
+<body>
+
+
+
+  <script>
+    const message = "Hello World";
+
+    // Get the screen width and height
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    console.log(`screen width is: ${screenWidth} & screen height is: ${screenHeight}`)
+
+    // Create a function that generates a random location on the screen
+    function generateRandomLocation(screenWidth, screenHeight) {
+      const x = Math.floor(Math.random() * screenWidth);
+      const y = Math.floor(Math.random() * screenHeight);
+
+      return { x, y };
+    }
+
+    // Set an interval to display the "Hello World" message at random locations
+    setInterval(() => {
+      // Get a random location on the screen
+      const randomLocation = generateRandomLocation(screenWidth, screenHeight);
+
+      // Create a new element at the random location
+      const element = document.createElement('p');
+      element.textContent = message;
+      element.style.position = 'absolute';
+      element.style.left = randomLocation.x + 'px';
+      element.style.top = randomLocation.y + 'px';
+
+      // Append the new element to the document
+      document.body.appendChild(element);
+    }, 5000);
+  </script>
+  
+</body>
+</html>

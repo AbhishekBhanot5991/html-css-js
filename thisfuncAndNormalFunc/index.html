@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this function and lambda function</title>
+</head>
+<body>
+    
+
+    <script>
+      // here this will give NaN(Not a Number)  
+      const obj = {
+        fName: 'Abhishek',
+        lName: "Bhanot",
+        fullName: function () {
+            return this.fName + this.lName;
+        }
+      };
+      const getMyFullName = obj.fullName;
+      console.log(getMyFullName());
+    //   const obj = {
+    //     fName: 'Abhishek',
+    //     lName:"Bhanot",
+    //     rollNo: 12,
+    //     fullName: ()=> obj.fName + obj.lName   
+        
+    //   }    
+    //   const getFullName = obj.fullName;
+    //   console.log(getFullName())
+
+
+    </script>
+</body>
+</html>

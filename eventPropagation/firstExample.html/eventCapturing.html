@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Box Model</title>
+    <style>
+        #outerBox{
+            background-color: red;
+            padding: 1rem;
+            color: #fff;
+        }
+        #innerBox{
+            background-color: blueviolet;
+            padding: 1rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="outerBox">
+        Outer Box
+        <div id="innerBox">
+          Inner Box  
+        </div>
+    </div>
+
+    <script>
+        const outerBox = document.querySelector('#outerBox');
+        const innerBox = document.querySelector('#innerBox');
+    
+        outerBox.addEventListener('click', function(e){
+            console.log("Clicked inside outer box");
+            console.log('Target', e.target.id)
+        },true)
+        innerBox.addEventListener('click', function(e){
+            console.log("Clicked inside inner box");
+            console.log('Target', e.target.id)
+        },true)
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+</head>
+<body>
+    
+    <div id="parent">
+        <button id="child">
+            Button
+        </button>
+    </div>
+
+
+    <script>
+        const parent = document.querySelector('#parent');
+        const child = document.querySelector('#child');
+        
+        parent.addEventListener('click', function(){
+            console.log('Parent clicked (Captrue phase)')
+        }, true)
+        
+        child.addEventListener('click', function(){
+            console.log('Chiled clicked (Target phase)')
+        })
+        
+        parent.addEventListener('click', function(){
+            console.log('Parent clicked (Bubble phase)')
+        })
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random color Generator and hex code Copier</title>
+    <style>
+      #color-container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      #copy-button {
+        padding: 0.8rem 1.5rem;
+        background-color: #fff;
+        border: 1px solid #000;
+        margin-top: 1rem;
+        cursor: pointer;
+        margin-right: 0.8rem;
+      }
+      #update-button {
+        padding: 0.8rem 1.5rem;
+        background-color: #fff;
+        border: 1px solid #000;
+        margin-top: 1rem;
+        cursor: pointer;
+      }
+      .display {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="color-container">
+      <div id="color-display"></div>
+
+      <div id="color-information">
+        <div id="color-name"></div>
+        <div id="color-hex"></div>
+        <div id="color-rgb"></div>
+      </div>
+
+      <div class="display">
+        <div id="copy-button">Copy Color</div>
+        <div id="update-button" onclick="updateColorDisplay()">
+          Update Color
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+      //function to generate a random color
+      function getRandomColor() {
+        const randomColor = `#${Math.floor(Math.random() * 16777215)
+          .toString(16)
+          .padStart(6, "0")}`;
+        return randomColor;
+        console.log(randomColor);
+      }
+
+    
+
+      // function to update the color to display and information
+      function updateColorDisplay() {
+        const color = getRandomColor();
+        const rgbColor = hexToRgb(color);
+
+        const colorDisplay = document.querySelector("#color-display");
+        const colorHexElement = document.querySelector("#color-hex");
+        const colorRgbElement = document.querySelector("#color-rgb");
+
+        colorDisplay.style.backgroundColor = color;
+        colorHexElement.textContent = `Color Hex: ${color}`;
+        colorRgbElement.textContent = `Color Rgb: ${rgbColor}`;
+        document.body.style.backgroundColor = color;
+      }
+
+      // Function to convert a hex color to RGB format
+      function hexToRgb(hex) {
+        const bigint = parseInt(hex.slice(1), 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return `rgb(${r}, ${g}, ${b})`;
+      }
+
+      // Function to copy text to the clipboard
+      function copyToClipboard(text) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
+      // Event listener for the "Copy Color" button
+      const copyButton = document.getElementById("copy-button");
+      copyButton.addEventListener("click", () => {
+        const colorHex = document
+          .getElementById("color-hex")
+          .textContent.split(":")[1]
+          .trim();
+        copyToClipboard(colorHex);
+        alert(`Copied: ${colorHex}`);
+      });
+
+      // Initial color display
+      updateColorDisplay();
+    </script>
+  </body>
+</html>

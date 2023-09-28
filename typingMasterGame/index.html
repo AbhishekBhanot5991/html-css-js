@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Saver Effect</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+        <div class="word-display" id="word-display">Word</div>
+        <input type="text" id="user-input" placeholder="Start typing...">
+        <div class="score">Score: <span id="score">0</span></div>
+    </div>
+    <script>
+    const words = [
+    "programming",
+    "javascript",
+    "developer",
+    "html",
+    "css",
+    "challenge",
+    // Add more words as needed
+];
+
+let currentWordIndex = 0;
+let score = 0;
+
+const wordDisplay = document.getElementById("word-display");
+const userInput = document.getElementById("user-input");
+const scoreDisplay = document.getElementById("score");
+
+// Initialize the game
+function initializeGame() {
+    currentWordIndex = 0;
+    score = 0;
+    updateUserInput();
+    displayWord();
+    userInput.focus();
+    updateScore();
+}
+
+// Display the current word to type
+function displayWord() {
+    wordDisplay.textContent = words[currentWordIndex];
+}
+
+// Update the user's input and check for correctness
+function updateUserInput() {
+    userInput.value = "";
+}
+
+// Update the score display
+function updateScore() {
+    scoreDisplay.textContent = score;
+}
+
+// Event listener for user input
+userInput.addEventListener("input", () => {
+    const userInputValue = userInput.value.trim().toLowerCase();
+    const currentWord = words[currentWordIndex];
+
+    if (userInputValue === currentWord) {
+        score++;
+        currentWordIndex++;
+
+        if (currentWordIndex === words.length) {
+            // All words completed, game over
+            alert("Congratulations! You completed the game!");
+            initializeGame();
+        } else {
+            updateUserInput();
+            displayWord();
+            updateScore();
+        }
+    }
+});
+
+// Initialize the game
+initializeGame();
+
+    </script>
+  </body>
+</html>

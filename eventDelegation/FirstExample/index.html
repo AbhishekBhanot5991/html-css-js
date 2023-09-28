@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+</head>
+<body>
+    <ul id="todo-list">
+        <li><input type="checkbox" name="" id="">item1</li>
+        <li><input type="checkbox" name="" id="">item2</li>
+        <li><input type="checkbox" name="" id="">item3</li>
+    </ul>
+    <script>
+        const todoList = document.querySelector('#todo-list')
+        
+        todoList.addEventListener('click', (e)=>{
+            if(e.target.tagName === 'INPUT' && e.target.type === 'checkbox'){
+                if(e.target.checked){
+                    e.target.parentNode.style.textDecoration = 'line-through'
+                }
+                else{
+                    e.target.parentNode.style.textDecoration = ''
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

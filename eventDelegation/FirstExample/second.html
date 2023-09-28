@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList</title>
+</head>
+<body>
+    <ul id="todoList">
+        <li><input type="checkbox" name="" id="">List Item 1</li>
+        <li><input type="checkbox" name="" id="">List Item 2</li>
+        <li><input type="checkbox" name="" id="">List Item 3</li>
+        <li><input type="checkbox" name="" id="">List Item 4</li>
+    </ul>
+    
+
+    <script>
+        const todoList = document.querySelector('#todoList')
+        todoList.addEventListener('click', function(e){
+            if(e.target.tagName === 'INPUT' && e.target.type === 'checkbox'){
+                if(e.target.checked){
+                    e.target.parentNode.style.textDecoration = 'line-through'
+                }
+                else{
+                    e.target.parentNode.style.textDecoration = ''
+
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
